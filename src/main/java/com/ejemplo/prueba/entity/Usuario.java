@@ -3,7 +3,7 @@ package com.ejemplo.prueba.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuario")
 public class Usuario {
 
     @Id
@@ -18,14 +18,6 @@ public class Usuario {
 
     @Column(name= "dni")
     private String dni;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;

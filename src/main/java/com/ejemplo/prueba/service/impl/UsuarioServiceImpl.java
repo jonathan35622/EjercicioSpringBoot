@@ -1,11 +1,16 @@
 package com.ejemplo.prueba.service.impl;
 
+
 import com.ejemplo.prueba.entity.Usuario;
 import com.ejemplo.prueba.repository.UsuarioRepository;
 import com.ejemplo.prueba.service.UsuarioService;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
+import org.springframework.data.domain.Pageable;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
@@ -31,7 +36,14 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario userFindById(Long id) {
+    public Page<Usuario> findAll(Pageable pageable) {
+        return usuarioRepository.findAll(pageable);
+    }
+
+
+
+    @Override
+    public Optional<Usuario> userFindById(Long id) {
         return usuarioRepository.findUsuarioById(id);
     }
 
